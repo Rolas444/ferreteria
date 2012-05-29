@@ -1,0 +1,28 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('categoria')}}">Categoria</a> <div class="breadcrumb_divider"></div><a class="current">Creación</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Crear Categoria</h3></header>
+
+<form action="{{ path('categoria_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Crear</button>
+    </p>
+</form>
+
+{#<ul class="record_actions">
+    <li>
+        <a href="{{ path('categoria') }}">
+            Volver
+        </a>
+    </li>
+</ul>#}
+                        
+{%endblock cuerpo1%}

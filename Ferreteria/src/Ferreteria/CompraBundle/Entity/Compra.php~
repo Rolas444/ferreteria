@@ -1,0 +1,74 @@
+<?php
+
+namespace Ferreteria\CompraBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ferreteria\CompraBundle\Entity\Compra
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Compra
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /** @ORM\ManyToOne(targetEntity="Ferreteria\ProveedorBundle\Entity\Proveedor") */
+    private $Proveedor;
+
+    /** @ORM\ManyToOne(targetEntity="Ferreteria\UsuarioBundle\Entity\Usuario") */
+    private $Usuario;
+
+    /**
+     * @var string $TipoDocumento
+     *
+     * @ORM\Column(name="TipoDocumento", type="string", length=100)
+     */
+    private $TipoDocumento;
+
+    /**
+     * @var string $NumeroDocumento
+     *
+     * @ORM\Column(name="NumeroDocumento", type="string", length=100)
+     */
+    private $NumeroDocumento;
+
+    /**
+     * @var datetime $Fecha
+     *
+     * @ORM\Column(name="Fecha", type="datetime")
+     */
+    private $Fecha;
+
+    /**
+     * @var float $MontoTotal
+     *
+     * @ORM\Column(name="MontoTotal", type="float")
+     */
+    private $MontoTotal;
+
+    /**
+     * @var boolean $TipoPago
+     *
+     * @ORM\Column(name="TipoPago", type="boolean")
+     */
+    private $TipoPago;
+
+    /**
+     * @var datetime $FechaEnvio
+     *
+     * @ORM\Column(name="FechaEnvio", type="datetime")
+     */
+    private $FechaEnvio;
+
+
+    
+}

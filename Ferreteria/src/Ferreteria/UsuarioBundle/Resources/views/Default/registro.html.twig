@@ -1,0 +1,40 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+{%block ubicacion%}
+<a href="#">Usuarios</a> <div class="breadcrumb_divider"> </div><a class="current">Registro</a>
+{%endblock ubicacion%}
+{% block id 'usuario' %}
+{% block titulo %}usuario | Registro{% endblock %}
+{% block cuerpo1 %}
+
+<article class="module width_full">
+			<header><h3>Registrar Usuario</h3></header>
+				<div class="module_content">
+                                    
+                                    <form action="{{ path('usuario_registro') }}" method="post" {{ form_enctype(formulario) }}>
+                                                
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(formulario.Nombre, 'Nombre :') }}
+                                        {{form_widget(formulario.Nombre)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(formulario.Apellido, 'Apellidos :') }}
+                                        {{form_widget(formulario.Apellido)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(formulario.Rol, 'Rol :') }}
+                                        {{form_widget(formulario.Rol)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(formulario.Password.first, 'Contraseña :') }}
+                                        {{form_widget(formulario.Password.first)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(formulario.Password.second, 'Comfirmación :') }}
+                                        {{form_widget(formulario.Password.second)}}</fieldset>
+                                       <div class="clear"></div>	
+				</div>
+			<footer>
+				<div class="submit_link">
+                                    <button type="submit">Guardar</button>    
+				</div>
+			</footer>
+                        
+                      </form>
+		</article>
+{% endblock %}

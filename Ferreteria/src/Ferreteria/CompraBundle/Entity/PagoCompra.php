@@ -1,0 +1,111 @@
+<?php
+
+namespace Ferreteria\CompraBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ferreteria\CompraBundle\Entity\PagoCompra
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class PagoCompra
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /** @ORM\ManyToOne(targetEntity="Ferreteria\CompraBundle\Entity\Compra") */
+    private $Compra;
+
+    /**
+     * @var integer $NumeroPago
+     *
+     * @ORM\Column(name="NumeroPago", type="integer")
+     */
+    private $NumeroPago;
+
+    /**
+     * @var float $Monto
+     *
+     * @ORM\Column(name="Monto", type="float")
+     */
+    private $Monto;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get Compra
+     *
+     * @return string 
+     */
+    public function getCompra()
+    {
+        return $this->Compra;
+    }
+
+    /**
+     * Set NumeroPago
+     *
+     * @param integer $numeroPago
+     */
+    public function setNumeroPago($numeroPago)
+    {
+        $this->NumeroPago = $numeroPago;
+    }
+
+    /**
+     * Get NumeroPago
+     *
+     * @return integer 
+     */
+    public function getNumeroPago()
+    {
+        return $this->NumeroPago;
+    }
+
+    /**
+     * Set Monto
+     *
+     * @param float $monto
+     */
+    public function setMonto($monto)
+    {
+        $this->Monto = $monto;
+    }
+
+    /**
+     * Get Monto
+     *
+     * @return float 
+     */
+    public function getMonto()
+    {
+        return $this->Monto;
+    }
+
+    /**
+     * Set Compra
+     *
+     * @param Ferreteria\CompraBundle\Entity\Compra $compra
+     */
+    public function setCompra(\Ferreteria\CompraBundle\Entity\Compra $compra)
+    {
+        $this->Compra = $compra;
+    }
+}

@@ -1,0 +1,39 @@
+<h1>PagoCompra list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numeropago</th>
+            <th>Monto</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('pagocompra_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.NumeroPago }}</td>
+            <td>{{ entity.Monto }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('pagocompra_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('pagocompra_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('pagocompra_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

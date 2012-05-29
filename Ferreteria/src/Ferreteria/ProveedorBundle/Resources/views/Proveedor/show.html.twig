@@ -1,0 +1,87 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('proveedor')}}">Proveedor</a> <div class="breadcrumb_divider"></div><a class="current">Detalle</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+        
+<article class="module width_full">
+    <header><h3>Detalle de Proveedor</header>
+            <div class="module_content">
+                <h1>Proveedor</h1>
+
+                    <table class="record_properties">
+                        <tbody>
+                            {#<tr>
+                                <th>Id</th>
+                                <td>{{ entity.id }}</td>
+                            </tr>#}
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ entity.Nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipodocumento</th>
+                                <td>{{ entity.TipoDocumento }}</td>
+                            </tr>
+                            <tr>
+                                <th>Numerodocumento</th>
+                                <td>{{ entity.NumeroDocumento }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ entity.Email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Direccion</th>
+                                <td>{{ entity.Direccion }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fax</th>
+                                <td>{{ entity.Fax }}</td>
+                            </tr>
+                            <tr>
+                                <th>Web</th>
+                                <td>{{ entity.Web }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telefono</th>
+                                <td>{{ entity.Telefono }}</td>
+                            </tr>
+                            <tr>
+                                <th>Observacion</th>
+                                <td>{{ entity.Observacion }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    {#<ul class="record_actions">
+                        <li>
+                            <a href="{{ path('proveedor') }}">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>#}
+    
+                    <form action="{{ path('proveedor_edit', { 'id': entity.id } )}}">                           
+                        <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+                    </form>  
+    
+    
+                    <form action="{{ path('proveedor_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                        <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+
+                    </form>
+            </div>
+    
+            <footer>
+                <div class="submit_link">
+
+                </div>
+            </footer>
+</article><!-- end of content manager article -->        
+    
+{%endblock cuerpo1%}

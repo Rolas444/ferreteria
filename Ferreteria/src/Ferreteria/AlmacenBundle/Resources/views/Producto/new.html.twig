@@ -1,0 +1,30 @@
+
+
+<form  id="producto" action="{{ path('producto_create') }}" method="post" {{ form_enctype(form) }}>
+    <h1><input type="submit" value="Agregar" style="float: right;"></h1>
+    <fieldset>
+    {{ form_label(form.Nombre) }}
+    {{ form_widget(form.Nombre,{'attr':{'class':'pronombre'}}) }}
+    {{ form_widget(form.CodProducto,{'attr':{'value':'O'}}) }}
+    {{ form_label(form.Marca) }}
+    {{ form_widget(form.Marca,{'attr':{'class':'promarca'}}) }}
+    {{ form_label(form.Descripcion,'Descripcion') }}
+    {{ form_widget(form.Descripcion,{'attr':{'class':'descripcion'}}) }}
+    {{ form_label(form.Categoria,'Categoria') }}
+    {{ form_widget(form.Categoria,{'attr':{'class':'procategoria'}}) }}
+    {{ form_label(form.UnidadMedida,'Medida :') }}
+    {{ form_widget(form.UnidadMedida,{'attr':{'class':'promedida'}}) }}
+    {{ form_label(form.Stock,'Cantidad :') }}
+    {{ form_widget(form.Stock,{'attr':{'class':'procantidad'}}) }}
+    {{ form_label(form.Precio,'precio unitario de venta :') }}
+    {{ form_widget(form.Precio) }}
+            
+        </fieldset>
+    {{ form_rest(form) }}
+    
+</form>
+<fieldset>
+    <label>Precio de Compra :</label>
+    <input class="proprecio" type="text">
+</fieldset>
+<footer></footer>

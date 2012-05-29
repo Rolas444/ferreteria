@@ -1,0 +1,55 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('representante')}}">Representante</a> <div class="breadcrumb_divider"> </div><a class="current">Creación</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Crear Representante</h3></header>
+
+
+<form action="{{ path('representante_create') }}" method="post" {{ form_enctype(form) }}>    
+    
+    <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Nombre, 'Nombre :') }}
+     {{form_widget(form.Nombre)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Apellido, 'Apellido :') }}
+     {{form_widget(form.Apellido)}}</fieldset> 
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Telefono1, 'Telefono1:') }}
+     {{form_widget(form.Telefono1)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Telefono2, 'Telefono2:') }}
+     {{form_widget(form.Telefono2)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Telefono3, 'Telefono3:') }}
+     {{form_widget(form.Telefono3)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Telefono4, 'Telefono4:') }}
+     {{form_widget(form.Telefono4)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Email, 'Email :') }}
+     {{form_widget(form.Email)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Documento, 'Documento :') }}
+     {{form_widget(form.Documento)}}</fieldset>
+     <fieldset style="width:50%; padding: 1%;">
+     {{ form_label(form.Proveedor, 'Proveedor:') }}
+     {{form_widget(form.Proveedor)}}</fieldset>  
+     {{form_rest(form)}}
+    <p>
+        <input type="submit" value="Guardar"/>
+    </p>
+</form>
+
+{#<ul class="record_actions">
+    <li>
+        <a href="{{ path('representante') }}">
+            Volver
+        </a>
+    </li>
+</ul>}#}
+{%endblock cuerpo1%}

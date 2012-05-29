@@ -1,0 +1,50 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('pedido')}}">Pedido</a> <div class="breadcrumb_divider"></div> <a class="current">Editar</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+    <header><h3>Editar Pedido</h3></header>
+    <div class="module_content">  
+
+<form action="{{ path('pedido_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    
+            <fieldset style="width:30%; padding: 2%;">
+            {{ form_label(edit_form.Fecha, 'Fecha :') }}
+            {{form_widget(edit_form.Fecha)}}</fieldset> 
+            <fieldset style="width:30%; padding: 2%;">
+            {{ form_label(edit_form.Monto, 'Monto :') }}
+            {{form_widget(edit_form.Monto)}}</fieldset>
+            <fieldset style="width:30%; padding: 2%;">
+            {{ form_label(edit_form.Igv, 'Igv :') }}
+            {{form_widget(edit_form.Igv )}}</fieldset>
+            <fieldset style="width:30%; padding: 2%;">
+            {{ form_label(edit_form.Descripcion, 'Descripcion :') }}
+            {{form_widget(edit_form.Descripcion)}}</fieldset>
+            <fieldset style="width:30%; padding: 2%;">
+            {{ form_label(edit_form.NombreCliente, 'Nombre Cliente :') }}
+            {{form_widget(edit_form.NombreCliente)}}</fieldset>                     
+            {#<fieldset style="width:30%; padding: 2%;"> 
+            {{ form_label(edit_form.Usuario, 'Usuario :') }}
+            {{form_widget(edit_form.Usuario, {'attr':{value:'1'}})}}</fieldset>#}
+    
+            
+            <button type="submit">Guardar</button>
+        </form>
+        
+    </div>    
+    <footer>
+        <div class="submit_link">
+                         
+                       
+             
+                
+        </div>/form>
+    </footer>
+        
+</article>
+
+{%endblock cuerpo1%}

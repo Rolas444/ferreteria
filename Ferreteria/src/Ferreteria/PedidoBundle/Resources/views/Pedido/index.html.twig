@@ -1,0 +1,60 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('pedido')}}">Pedido</a> <div class="breadcrumb_divider"></div><!--<a class="current">Editar</a>-->
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+
+<article class="module width_3_quarter">
+    <header><h3 class="tabs_involved">Lista de Pedidos</h3>
+        <ul class="tabs">
+                <li><a href="#tab1">pagina 1</a></li>        
+        </ul>
+    </header>
+
+    <div class="tab_container">
+        <div id="tab1" class="tab_content">
+            <table class="tablesorter" cellspacing="0"> 
+                <thead>    
+                    <tr>
+                        <!--<th>Id</th>-->
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Igv</th>
+                        <th>Descripcion</th>
+                        <th>Nombrecliente</th>
+                        <!--<th>Usuario</th>-->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        {#<!--<td><a href="{{ path('pedido_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>-->#}
+                        <td>{% if entity.Fecha %}{{ entity.Fecha|date('Y-m-d H:i:s') }}{% endif%}</td>
+                        <td>{{ entity.Monto }}</td>
+                        <td>{{ entity.Igv }}</td>
+                        <td>{{ entity.Descripcion }}</td>
+                        <td>{{ entity.NombreCliente }}</td>
+                        <td>                        
+                            <a href="{{ path('pedido_show', { 'id': entity.id }) }}">Detalles</a>
+                            <a href="{{ path('pedido_edit', { 'id': entity.id }) }}">Editar</a>                            
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>   
+        {#<form action="{{ path('pedido_new')}}">                           
+            <input type="image" src="{{asset('bundles/front/images/icn_new_article.png')}}">                                   
+        </form>#}
+     </div>
+    <footer>
+        <div class="submit_link"></div>
+    </footer>       
+</article>
+
+{%endblock cuerpo1%}

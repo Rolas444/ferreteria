@@ -1,0 +1,29 @@
+security:
+  
+    firewalls:
+        fronted:
+            
+            pattern:    ^/
+            anonymous:  ~
+            form_login:
+                login_path: /usuario/login
+                check_path: /usuario/login_check
+            logout:
+                path: usuario_logout
+                target: /usuario/login
+            switch_user: { role: ROLE_ADMIN }
+            remember_me:
+                key:      ferreteria123
+                lifetime: 3600
+            
+    access_control:
+        - { path: ^/usuario/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/*, roles: ROLE_ADMIN }
+        
+    providers: 
+        usuarios:
+            entity: { class: Ferreteria\UsuarioBundle\Entity\Usuario, property: Nombre }
+            
+    encoders:
+        Ferreteria\UsuarioBundle\Entity\Usuario: plaintext
+        

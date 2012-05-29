@@ -1,0 +1,62 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('pedido')}}">Pedido</a> <div class="breadcrumb_divider"></div><a class="current">Detalle</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+
+<article class="module width_full">
+    <header><h3>Detalle de Artículo</h3></header>
+    <div class="module_content">
+        <h1>Pedido</h1>
+
+    <table class="record_properties">
+        <tbody>
+
+
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.Fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Monto</th>
+                <td>{{ entity.Monto }}</td>
+            </tr>
+            <tr>
+                <th>Igv</th>
+                <td>{{ entity.Igv }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.Descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Nombrecliente</th>
+                <td>{{ entity.NombreCliente }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="{{ path('pedido_edit', { 'id': entity.id } )}}">                           
+        <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+    </form>
+        
+    <form action="{{ path('pedido_delete', { 'id': entity.id }) }}" method="post">
+    {{ form_widget(delete_form) }}
+        <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+    </form>       
+
+        </div>
+    <footer>
+        <div class="submit_link">
+        </div>
+    </footer>  
+</article><!-- end of post new article -->
+
+{%endblock cuerpo1%}

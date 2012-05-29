@@ -1,0 +1,24 @@
+     
+{% for entity in entities %}
+        
+            <tr id="{{ entity.id }}"> 
+            <!--<form action="#">  -->
+            {#<td><input type="checkbox"></td>  #} 
+
+            <td style="display: none;" id="valor_ide"><a href="{{ path('producto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            {#<td>{{ entity.CodProducto }}</td>#}
+            <td id="valor_uno">{{ entity.Nombre }}</td>
+            {#<td>{{ entity.Descripcion }}</td>#}
+            <td id="valor_dos">{{ entity.Marca }}</td>
+            <td id="valor_tres">{{ entity.Categoria }}</td>
+            <td id="valor_cuatro">{{ entity.Stock }}</td>
+            <td id="valor_cinco">{{ entity.UnidadMedida }}</td>
+            <td id="valor_seis">{{ entity.Precio }}</td>
+            <td><input id="valor_siete" type="text" style="width: 22px;" value="1"/><a href="javascript: fn_agregar({{entity.id}});">agregar</a><!--<input type="submit" id="" value="+"/>--></td>
+              <!-- </form>  -->
+            <!--<td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td> 
+            --></tr> 
+         {%else %}
+            <p> no se encontraron coincidencias</p>
+        {%endfor%}
+       

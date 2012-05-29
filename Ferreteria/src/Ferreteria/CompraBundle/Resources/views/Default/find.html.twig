@@ -1,0 +1,42 @@
+
+{%block busqueda%}
+
+<header><h3 class="tabs_involved">Productos en existencia</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">pagina 1</a></li>
+    		<li><a href="#tab2">pagina 2</a></li>
+		</ul>
+</header>
+<header>
+    <form action="{{ path('pedido_find') }}" id="buscar" class="post_message" method="POST">
+        <input type="text" name="busca" value="Buscar :" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+                    <input type="submit"  class="btn_post_message" value=""/>
+            </form>
+    </header>
+		<div class="message_list">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   				{#	<th></th> #} 
+    				<!--<th>Id</th> -->
+                                <!--<th>Codigo</th>-->
+                                <th>Nombre</th>
+                                <!--<th>Descripcion</th>-->
+                                <th>Marca</th>
+                                <th>Categoria</th>
+                                <th>Stock</th>
+                                <th>Unidad</th>
+                                <th>Precio</th>
+                                <th>agregar</th>
+				</tr> 
+			</thead> 
+			<tbody id="espacio"> 
+                            
+                        </tbody>
+                        </table>
+                </div>
+                        
+        </div>
+        <footer></footer>
+{%endblock busqueda%}

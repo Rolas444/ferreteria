@@ -1,0 +1,45 @@
+UsuarioBundle:
+    resource: "@UsuarioBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ProveedorBundle:
+    resource: "@ProveedorBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+CompraBundle:
+    resource: "@CompraBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+PedidoBundle:
+    resource: "@PedidoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+AlmacenBundle:
+    resource: "@AlmacenBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
+FrontBundle:
+    resource: "@FrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+portada:
+    pattern: /
+    defaults: { _controller: FrontBundle:Default:index }
+    
+FrontBundle:
+    resource: "@AlmacenBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal

@@ -1,0 +1,75 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('proveedor')}}">Proveedor</a> <div class="breadcrumb_divider"> <!--</div><a class="current">Editar</a>-->
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+ 
+
+<article class="module width_3_quarter">
+    <header><h3 class="tabs_involved">Lista de Proveedores</h3>
+        <ul class="tabs">
+                <li><a href="#tab1">pagina 1</a></li>
+        <li><a href="#tab2">pagina 2</a></li>
+        </ul>
+    </header>
+
+    <div class="tab_container">
+            <div id="tab1" class="tab_content">
+            <table class="tablesorter" cellspacing="0"> 
+                <thead> 
+                        <tr> 
+                                <th></th> 
+                        <!--<th>Id</th>-->
+                        <th>Nombre</th>
+                        {#<th>Email</th>#}
+                        <th>Direccion</th>
+                        <th>Fax</th>
+                        <!--<th>Web</th>-->
+                        <th>Telefono</th>
+                        <th>Observacion</th>
+                        <th>Acciones</th>
+                        </tr> 
+                </thead> 
+            <tbody> 
+
+                {% for entity in entities %}
+
+                    <tr> 
+                        <td><input type="checkbox"></td> 
+
+                        <td>{{ entity.Nombre}}</td>
+                        {#<td>{{ entity.Email }}</td>#}
+                        <td>{{ entity.Direccion }}</td>
+                        <td>{{ entity.Fax }}</td>
+                        {#<td>{{ entity.Web }}</td>#}
+                        <td>{{ entity.Telefono }}</td>
+                        <td>{{ entity.Observacion }}</td>
+                        <td>
+                            <a href="{{ path('proveedor_show', { 'id': entity.id }) }}">Detalles</a>
+                            <a href="{{ path('proveedor_edit', { 'id': entity.id }) }}">Editar</a>
+                        </td>
+
+                        <!--<td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td> 
+                    --></tr> 
+                {%endfor%}        
+            </tbody> 
+            </table>
+            </div><!-- end of #tab1 -->
+                <form action="{{ path('proveedor_new')}}">                           
+                    <input type="image" src="{{asset('bundles/front/images/icn_new_article.png')}}">                                   
+                <form>                         
+    </div><!-- end of .tab_container -->
+                
+                <footer>
+                    <div class="submit_link">
+
+                    </div>
+                </footer>
+                
+</article><!-- end of content manager article -->
+                    
+{%endblock cuerpo1%}
+                

@@ -1,0 +1,53 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('unidadmedida')}}">Unidad Media</a> <div class="breadcrumb_divider"></div><a class="current">Detalle</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Detalle Unidad Medida</h3></header>
+				<div class="module_content">
+                                    <h1>UnidadMedida</h1>
+                                    <table class="record_properties">
+                                        <tbody>
+                                            <tr>
+                                                <th>Id</th>
+                                                <td>{{ entity.id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <td>{{ entity.Nombre }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    {#<ul class="record_actions">
+                                        <li>
+                                            <a href="{{ path('unidadmedida') }}">
+                                                Volver
+                                            </a>
+                                        </li>
+                                        </ul>#}
+                                    <form action="{{ path('unidadmedida_edit', { 'id': entity.id } )}}">                           
+                                        <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+                                    </form>  
+    
+    
+                                    <form action="{{ path('unidadmedida_delete', { 'id': entity.id }) }}" method="post">
+                                    {{ form_widget(delete_form) }}
+                                        <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+
+                                    </form> 
+                                </div>
+
+                                    <footer>
+                                        <div class="submit_link">
+
+                                        </div>
+                                    </footer>
+                                    
+</article><!-- end of content manager article -->
+{%endblock cuerpo1%}

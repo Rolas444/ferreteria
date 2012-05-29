@@ -1,0 +1,33 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('categoria')}}">Categoria</a> <div class="breadcrumb_divider"></div><a class="current">Editar</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Editar Categoria</header>
+				<div class="module_content">
+
+                                <form action="{{ path('categoria_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                                                
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Nombre, 'Nombre :') }}
+                                        {{form_widget(edit_form.Nombre)}}</fieldset>        
+                                        {{form_rest(edit_form)}}
+                                    <input type="submit" value="Guardar"/>
+                                </form>
+                        <div class="clear"></div>	
+		</div>
+    <footer>
+
+
+    </footer>
+                        
+                                           
+		</article><!-- end of post new article -->
+
+
+{%endblock cuerpo1%}

@@ -1,0 +1,62 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('representante')}}">Representante</a> <div class="breadcrumb_divider"> </div><a class="current">Editar</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Editar Representante</h3></header>
+				<div class="module_content">
+                                    
+                                    <form action="{{ path('representante_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                                                
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Nombre, 'Nombre:') }}
+                                        {{form_widget(edit_form.Nombre)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Apellido, 'Apellido :') }}
+                                        {{form_widget(edit_form.Apellido)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Proveedor, 'Documento :') }}
+                                        {{form_widget(edit_form.Proveedor)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Telefono1, 'Telefono1:') }}
+                                        {{form_widget(edit_form.Telefono1)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Telefono2, 'Telefono2 :') }}
+                                        {{form_widget(edit_form.Telefono2)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Telefono3, 'Telefono3 :') }}
+                                        {{form_widget(edit_form.Telefono3)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Telefono4, 'Telefono4 :') }}
+                                        {{form_widget(edit_form.Telefono4)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Email, 'Email :') }}
+                                        {{form_widget(edit_form.Email)}}</fieldset>
+                                        <fieldset style="width:50%; padding: 1%;">
+                                        {{ form_label(edit_form.Documento, 'Documento :') }}
+                                        {{form_widget(edit_form.Documento)}}</fieldset>
+                                        {{form_rest(edit_form)}}
+                                        
+                                        <input type="submit" value="Guardar"/>
+                                    </form>
+                                                                   
+					<div class="clear"></div>	
+				</div>
+			<footer>
+
+			</footer>
+                                      
+		</article><!-- end of post new article -->
+
+{%endblock cuerpo1%}
+
+
+
+
+
+

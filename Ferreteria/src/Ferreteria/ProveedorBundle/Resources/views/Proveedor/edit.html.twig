@@ -1,0 +1,51 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('proveedor')}}">Proveedor</a> <div class="breadcrumb_divider"></div><a class="current">Editar</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_half">
+			<header><h3>Editar Proveedor</h3></header>
+				<div class="module_content">
+                                    
+                                    <form action="{{ path('proveedor_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                                          
+                                        <fieldset style="width:70%; padding: 1%;">
+                                        {{ form_label(edit_form.Nombre, 'Nombre :') }}
+                                        {{form_widget(edit_form.Nombre)}}</fieldset>
+                                        <H4>{{ form_label(edit_form.TipoDocumento, 'DOCUMENTO :') }}</h4>
+                                        {{form_widget(edit_form.TipoDocumento)}}
+                                        {{form_widget(edit_form.NumeroDocumento)}}
+                                        <fieldset style="width:70%; padding: 1%;">
+                                        {{ form_label(edit_form.Email, 'Email :') }}
+                                        {{form_widget(edit_form.Email)}}
+                                        {{ form_label(edit_form.Direccion, 'Direcion :') }}
+                                        {{form_widget(edit_form.Direccion)}}
+                                        {{ form_label(edit_form.Fax, 'Fax :') }}
+                                        {{form_widget(edit_form.Fax)}}
+                                        {{ form_label(edit_form.Web, 'Web :') }}
+                                        {{form_widget(edit_form.Web)}}
+                                        {{ form_label(edit_form.Telefono, 'Telefono:') }}
+                                        {{form_widget(edit_form.Telefono)}}
+                                        {{ form_label(edit_form.Observacion, 'Observacion :') }}
+                                        {{form_widget(edit_form.Observacion)}}</fieldset>
+                                        {{ form_label(edit_form.Ubigeo, 'Ubigeo :') }}
+                                        {{form_widget(edit_form.Ubigeo)}}
+                                        {{form_rest(edit_form)}}
+                                        
+                                        <input type="submit" value="Guardar"/>
+                                    </form>                        
+					<div class="clear"></div>	
+				</div>
+			<footer>
+
+			</footer>
+</ul>
+                        
+                                            </form>
+		</article><!-- end of post new article -->
+
+{%endblock cuerpo1%}

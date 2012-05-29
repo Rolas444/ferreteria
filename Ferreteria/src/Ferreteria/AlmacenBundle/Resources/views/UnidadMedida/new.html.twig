@@ -1,0 +1,28 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('unidadmedida')}}">Unidad Medida</a> <div class="breadcrumb_divider"></div> <a class="current">Creación</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Crear Unidad Medida</h3></header>
+
+<form action="{{ path('unidadmedida_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+{#<ul class="record_actions">
+    <li>
+        <a href="{{ path('unidadmedida') }}">
+            Volver
+        </a>
+    </li>
+</ul>#}
+                        
+{%endblock cuerpo1%}

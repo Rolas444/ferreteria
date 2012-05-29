@@ -1,0 +1,72 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('representante')}}">Representante</a> <div class="breadcrumb_divider"> </div><a class="current">Detalles</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Representante</h3></header>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ entity.Nombre }}</td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>{{ entity.Apellido }}</td>
+        </tr>
+        <tr>
+            <th>Telefono1</th>
+            <td>{{ entity.Telefono1 }}</td>
+        </tr>
+        <tr>
+            <th>Telefono2</th>
+            <td>{{ entity.Telefono2 }}</td>
+        </tr>
+        <tr>
+            <th>Telefono3</th>
+            <td>{{ entity.Telefono3 }}</td>
+        </tr>
+        <tr>
+            <th>Telefono4</th>
+            <td>{{ entity.Telefono4 }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.Email }}</td>
+        </tr>
+        <tr>
+            <th>Documento</th>
+            <td>{{ entity.Documento }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{#<ul class="record_actions">
+    <li>
+        <a href="{{ path('representante') }}">
+            Volver
+        </a>
+    </li>
+</ul>#}                        
+    <form action="{{ path('representante_edit', { 'id': entity.id } )}}">                           
+        <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+    </form>  
+    
+    
+    <form action="{{ path('representante_delete', { 'id': entity.id }) }}" method="post">
+    {{ form_widget(delete_form) }}
+        <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+
+    </form>                        
+
+{%endblock cuerpo1%}

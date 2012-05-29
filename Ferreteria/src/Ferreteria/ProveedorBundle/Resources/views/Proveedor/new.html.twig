@@ -1,0 +1,49 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('proveedor')}}">Proveedor</a> <div class="breadcrumb_divider"></div><a class="current">Creación</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_half">
+			<header><h3>Crear Proveedor</h3></header>
+                        
+<form action="{{ path('proveedor_create') }}" method="post" {{ form_enctype(form) }}>
+     
+    <fieldset style="width:70%; padding: 1%;">
+     {{ form_label(form.Nombre, 'Nombre/Razon Social :') }}
+     {{form_widget(form.Nombre)}}</fieldset>
+    <h4> {{ form_label(form.TipoDocumento, ' DOCUMENTO :') }}</h4>
+     {{form_widget(form.TipoDocumento)}} 
+     {{form_widget(form.NumeroDocumento)}}
+     <fieldset style="width:70%; padding: 1%;">
+     {{ form_label(form.Email, 'Email :') }}
+     {{form_widget(form.Email)}}
+     {{ form_label(form.Direccion, 'Direccion:') }}
+     {{form_widget(form.Direccion)}}
+     {{ form_label(form.Fax, 'Fax :') }}
+     {{form_widget(form.Fax)}}
+     {{ form_label(form.Web, 'web :') }}
+     {{form_widget(form.Web)}}
+     {{ form_label(form.Telefono, 'Telefono :') }}
+     {{form_widget(form.Telefono)}}
+     {{ form_label(form.Observacion, 'Observaciones:') }}
+     {{form_widget(form.Observacion)}} 
+     {{ form_label(form.Ubigeo, 'Ubigeo:') }}
+     {{form_widget(form.Ubigeo)}}</fieldset> 
+      {{form_rest(form)}}
+   
+        <input type="submit" value="Guardar"/>
+    
+</form>
+
+{#<ul class="record_actions">
+    <li>
+        <a href="{{ path('proveedor') }}">
+            Volver
+        </a>
+    </li>
+</ul>#}
+{%endblock cuerpo1%}

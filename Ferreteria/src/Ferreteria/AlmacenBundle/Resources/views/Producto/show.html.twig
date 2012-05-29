@@ -1,0 +1,90 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('producto')}}">Producto</a> <div class="breadcrumb_divider"></div><a class="current">Detalle</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+			<header><h3>Detalle de Artículo</h3></header>
+				<div class="module_content">
+                                    <h1>Producto</h1>
+
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {#<tr>
+                                                <th>Id:</th>
+                                                <td>{{ entity.id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Codproducto :</th>
+                                                <td>{{ entity.CodProducto }}</td>
+                                            </tr>#}
+                                            <tr>
+                                                <th>Nombre :</th>
+                                                <td>{{ entity.Nombre }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Descripción :</th>
+                                                <td>{{ entity.Descripcion }}</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <th>Marca :</th>
+                                                <td>{{ entity.Marca }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Categoria :</th>
+                                                <td>{{ entity.Categoria }}</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <th>Cantidad Disponible :</th>
+                                                <td>{{ entity.Stock }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Unidad de Medida :</th>
+                                                <td>{{ entity.UnidadMedida }}</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <th>Precio Sugerido :</th>
+                                                <td>{{ entity.Precio }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    {#<ul class="record_actions">
+                                        <li>
+                                            <a href="{{ path('producto') }}">
+                                                volver
+                                            </a>
+                                        </li>
+                                     </ul>#}
+                                    <form action="{{ path('producto_edit', { 'id': entity.id } )}}">                           
+                                        <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+                                    </form>  
+    
+    
+                                    <form action="{{ path('producto_delete', { 'id': entity.id }) }}" method="post">
+                                    {{ form_widget(delete_form) }}
+                                        <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+
+                                    </form>       
+						
+				</div>
+			<footer>
+				<div class="submit_link">
+                                    
+				</div>
+			</footer>                        
+</article><!-- end of post new article -->
+
+{%endblock cuerpo1%}
+
+
+
+
+

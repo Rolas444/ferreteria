@@ -1,0 +1,38 @@
+<?php
+namespace Ferreteria\CompraBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/** @ORM\Entity */
+
+class DetalleCompra 
+{
+    /**
+    * @ORM\Id
+    * @ORM\ManyToOne(targetEntity="Ferreteria\CompraBundle\Entity\Compra")
+    */
+   private $Compra;
+   
+   /**
+    * @ORM\Id
+    * @ORM\ManyToOne(targetEntity="Ferreteria\AlmacenBundle\Entity\Producto")
+    */
+   private $Producto;
+   
+   /**
+     * @var integer $Cantidad
+     *
+     * @ORM\Column(name="Cantidad", type="integer")
+     */
+   private $Cantidad;
+   
+   /**
+     * @var float $Costo
+     *
+     * @ORM\Column(name="Costo", type="float")
+     */
+    private $Costo;
+    
+}
+
+?>

@@ -1,0 +1,143 @@
+
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block javascript%}
+<script>
+    jQuery('document').ready(function(){
+ //   intente ejecutar el submit del form
+        jQuery('#buscar').submit(function(){
+            
+            jQuery.post(jQuery('#buscar').attr('action'), jQuery('#buscar').serialize(), function(datos_devueltos){
+                        if(datos_devueltos){
+                             jQuery('#espacio').html(datos_devueltos);
+                            //alert (datos_devueltos);
+                             }
+
+                        else
+                            alert('Ha ocurrido un error');
+                    });
+            return false;
+        })
+ 
+     });
+</script>
+<script type="text/javascript">
+				jQuery('document').ready(function(){
+					jQuery('#imprimir').click(function(){
+						
+						$("#print2").printArea();
+						return false;
+					});
+				});
+</script>
+{%endblock%}
+
+
+{%block ubicacion%}
+<a href="{{path('pedido')}}">Pedido</a> <div class="breadcrumb_divider"></div><a class="current">Creación</a><div class="breadcrumb_divider"></div><a id="imprimir" href="#">imprimir</a>
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+<div id="print2" >
+    <article class="module width_quarter">
+	
+    <header class="oculto"><h3>Nuevo Pedido</h3></header>
+		
+        <form action="{{ path('pedido_create') }}" method="post" {{ form_enctype(form) }}>
+			
+            <h3 class="oculto">{{ form_label(form.Fecha, 'Fecha :') }}
+            {{form_widget(form.Fecha)}}</h3>
+            
+            <fieldset style="widht:45%;">
+            {#<fieldset style="width:50%; padding: 11%;">#}
+            {#</fieldset> #} 
+            {#<fieldset style="width:50%; padding: 11%;"> #}
+            {{ form_label(form.NombreCliente, 'Cliente :') }}<br/>
+            {{form_widget(form.NombreCliente)}}<br/>
+            
+            <div class="oculto">
+            {#<fieldset style="width:50%; padding: 11%;"> #}<br/>
+            {{ form_label(form.Descripcion, 'Descripcion :') }}<br/>
+            {{form_widget(form.Descripcion)}}{#</fieldset> #}<br/>
+            {#<fieldset style="width:50%; padding: 11%;"> #}
+            {{ form_label(form.Igv, 'Igv :') }}<br/>
+            {{form_widget(form.Igv )}}{#</fieldset> #}<br/>
+            {{ form_label(form.Monto, 'Monto Total :') }}<br/>
+            {{form_widget(form.Monto)}}{#</fieldset> #}<br/>
+                </div>
+           {# <fieldset style="width:50%; padding: 11%;"> #}
+                </fieldset>                     
+            {#<fieldset style="width:50%; padding: 11%;"> 
+            {{ form_label(form.Usuario, 'Usuario :') }}
+            {{form_widget(form.Usuario, {'attr':{value:'1'}})}}</fieldset>#}
+            
+            <p>
+                <input class="oculto" type="submit" value="Guardar"/> 
+            </p>
+        </form>
+        
+        
+
+        {#<ul class="record_actions">
+            <li>
+                <a href="{{ path('compra') }}">
+                    Volver
+                </a>
+            </li>
+        </ul>#}
+</article>
+<!-- <div style=”page-break-after:always> -->
+<article class="module width_3_quarter_d oculto" >
+<!-- </div>  -->
+{%block busqueda%}                                
+{%render 'CompraBundle:Compra:Busca'%}
+{%endblock %}
+
+</article>
+
+<article class="module width_3_quarter_d">
+
+    <header class="oculto"><h3 class="tabs_involved">Lista de Pedidos</h3>
+		
+</header>
+
+	<div class="message_list">
+			
+                            <table id="grilla" class="tablesorter" cellspacing="0"> 
+                            
+			<thead> 
+			
+				<tr> 
+   				{#	<th></th> #} 
+    				<!--<th>Id</th> -->
+                                <!--<th>Codigo</th>-->
+                                <th>Cant.</th>
+                                <th class="oculto">Unid.</th>
+                                <th>Nombre</th>
+                                <!--<th>Descripcion</th>-->
+                                <th>Marca</th>
+                                <th class="oculto">Categoria</th>
+                                                                
+                                <th>Precio</th>
+                                <th class="oculto">Quitar</th>
+				</tr> 
+			</thead> 
+                        <tbody> 
+                   
+                        </tbody>
+                        </table>
+                       
+                
+        </div>
+    <footer >
+                    
+        <p class="pie"><strong class="oculto">Ariculos :</strong> <span id="span_cantidad" class="oculto">0</span><strong> </strong><strong>Monto Total : S/. <span id="span_monto" class="monto">0.0</span></strong></p>
+        
+                             
+                    
+                </footer>
+                
+</article>
+</div>
+
+{%endblock cuerpo1%}

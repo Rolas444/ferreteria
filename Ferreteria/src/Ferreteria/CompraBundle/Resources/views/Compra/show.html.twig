@@ -1,0 +1,64 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('compra')}}">Compra</a> <div class="breadcrumb_divider"></div><!--<a class="current">Editar</a>-->
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+    <header><h3>Detalle de Compra</h3></header>
+        <div class="module_content">
+                <h1>Compra</h1>
+
+            <table class="record_properties">
+                <tbody>
+
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ entity.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tipodocumento</th>
+                        <td>{{ entity.TipoDocumento }}</td>
+                    </tr>
+                    <tr>
+                        <th>Numerodocumento</th>
+                        <td>{{ entity.NumeroDocumento }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <td>{{ entity.Fecha|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Montototal</th>
+                        <td>{{ entity.MontoTotal }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tipopago</th>
+                        <td>{{ entity.TipoPago }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fechaenvio</th>
+                        <td>{{ entity.FechaEnvio|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+                
+        <form action="{{ path('compra_edit', { 'id': entity.id } )}}">                           
+            <input type="image" src="{{asset('bundles/front/images/icn_edit_article.png')}}">                                                                                             
+        </form> 
+
+        <form action="{{ path('compra_delete', { 'id': entity.id }) }}" method="post">
+        {{ form_widget(delete_form) }}
+            <input type="image" src="{{asset('bundles/front/images/icn_trash.png')}}">                                                                                          
+        </form>
+       </div>         
+    <footer>
+        <div class="submit_link">
+        </div>
+    </footer>       
+        
+</article>
+
+{%endblock cuerpo1%}

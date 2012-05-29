@@ -1,0 +1,56 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+
+{%block ubicacion%}
+<a href="{{path('compra')}}">Compra</a> <div class="breadcrumb_divider"></div><!--<a class="current">Editar</a>-->
+{%endblock ubicacion%}
+
+{%block cuerpo1%}
+
+<article class="module width_full">
+    <header><h3>Editar Compra</h3></header>
+    <div class="module_content">  
+        
+         <form action="{{ path('compra_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                         
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.TipoDocumento, 'Tipo Documento :') }}
+            {{form_widget(edit_form.TipoDocumento)}}</fieldset> 
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.NumeroDocumento, 'NumeroDocumento :') }}
+            {{form_widget(edit_form.NumeroDocumento)}}</fieldset>
+            <fieldset style="width:20%; padding: 3%;">
+            {{ form_label(edit_form.Fecha, 'Fecha :') }}
+            {{form_widget(edit_form.Fecha)}}</fieldset>
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.MontoTotal, 'Monto Total :') }}
+            {{form_widget(edit_form.MontoTotal)}}</fieldset>
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.TipoPago, 'Tipo Pago :') }}
+            {{form_widget(edit_form.TipoPago)}}</fieldset>
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.FechaEnvio, 'Fecha Envío:') }}
+            {{form_widget(edit_form.FechaEnvio)}}</fieldset>
+            <fieldset style="width:25%; padding: 2%;">
+            {{ form_label(edit_form.Proveedor, 'Proveedor :') }}
+            {{form_widget(edit_form.Proveedor)}}</fieldset>
+            {#<fieldset style="width:50%; padding: 1%;"> 
+            {{ form_label(edit_form.Usuario, 'Usuario :') }}
+            {{form_widget(edit_form.Usuario, {'attr':{value:'usuario.id'}})}}</fieldset>#}
+        </form>
+
+        <form action="{{ path('compra_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}                                                                                           
+        </form>
+
+    </div>
+    <footer>
+        <div class="submit_link">
+            <button type="submit" class="alt_btn">Eliminar</button>                       
+            <button type="submit">Guardar</button>
+        </div>
+    </footer>
+                            
+</article><!-- end of post new article -->
+
+{%endblock cuerpo1%}
+				

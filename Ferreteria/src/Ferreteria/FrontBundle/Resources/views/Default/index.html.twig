@@ -1,0 +1,86 @@
+{%extends "::base.html.twig"%}
+{%block titulo%}inicio|{%endblock titulo%}
+
+{%block menu%}
+
+	<header id="header">
+		<hgroup>
+			<h1 class="site_title"><a href="index.html">Ferretería</a></h1>
+                        <h2 class="section_title">{%block titulo1 %}{% endblock titulo1%}</h2><div class="btn_view_site"><a class="current">{{ 'now' | date('d-m-Y') }}</a></div>
+		</hgroup>
+	</header> <!-- end of header bar -->
+	
+	<section id="secondary_bar">
+		<div class="user">
+                    {%if is_granted('ROLE_USUARIO')%}
+			<p>{{ app.user.nombre }} {{ app.user.Apellido }} (Usuario)</p>
+                    {%elseif is_granted('ROLE_ADMIN')%}
+                        <p>{{ app.user.nombre }} {{ app.user.Apellido }} (Administrador)</p>
+                    {%endif%}
+			 <!--<a class="logout_user" href="#" title="Logout">Logout</a> --> 
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs">{%block ubicacion%} {%endblock ubicacion%}<!--<a href="#">Home</a> <div class="breadcrumb_divider"></div> <a class="current"></a>--></article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	<aside id="sidebar" class="column"><!--
+		<form class="quick_search">
+			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>-->
+		<hr/>
+		<h3>Pedidos</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href="{{path('pedido_new')}}">Nuevo Pedido</a></li>
+			<li class="icn_categories"><a href="{{path('pedido')}}">Lista de Pedidos</a></li>                        
+			
+		</ul>
+                <h3>Compras</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href="{{path('compra_new')}}">Nueva Compra</a></li>
+			<li class="icn_edit_article"><a href="{{path('proveedor')}}">Proveedores</a></li>
+                        <li class="icn_edit_article"><a href="{{path('representante')}}">Representantes</a></li>
+		</ul>
+                <h3>Almacen</h3>
+		<ul class="toggle">
+			
+			<li class="icn_edit_article"><a href="{{path('producto')}}">Productos</a></li>
+                        <li class="icn_edit_article"><a href="{{path('unidadmedida')}}">Unidades</a></li>
+                        <li class="icn_edit_article"><a href="{{path('categoria')}}">Categorias</a></li>
+			
+		</ul>
+		<h3>Usuarios</h3>
+		<ul class="toggle">
+			<li class="icn_add_user"><a href="{{path('usuario_registro')}}">Nuevo Usuario</a></li>
+			<li class="icn_view_users"><a href="#">Ver Usuarios</a></li>
+			<li class="icn_profile"><a href="#">Editar</a></li>
+		</ul>
+		
+                <!--<h3>Media</h3>
+		<ul class="toggle">
+			<li class="icn_folder"><a href="#">File Manager</a></li>
+			<li class="icn_photo"><a href="#">Gallery</a></li>
+			<li class="icn_audio"><a href="#">Audio</a></li>
+			<li class="icn_video"><a href="#">Video</a></li>
+		</ul> -->
+		<h3>Admin</h3>
+		<ul class="toggle">
+			<li class="icn_settings"><a href="#">Opciones</a></li>
+			<li class="icn_security"><a href="#">Seguridad</a></li>
+			<li class="icn_jump_back"><a href="{{path('usuario_logout')}}">Salir</a></li>
+		</ul>
+		
+		<footer>
+			<hr />
+                        <p><strong><a href="http://www.globitecs.com" target=_blank >Globitecs</a></strong></p>
+			<!--<p><strong>Copyright &copy; 2011 Website Admin</strong></p>
+			<p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>-->
+		</footer>
+	</aside><!-- end of sidebar --> 
+        <section id="main" class="column">
+		
+            
+         {%block cuerpo1%}{%endblock cuerpo1%}
+        </section>
+
+{%endblock menu%}
